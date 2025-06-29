@@ -14,33 +14,40 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
+            android:background="#CCCCCC"
             android:scaleType="centerCrop"
-            android:src="@mipmap/add_photo_png" />
+            android:src="@android:drawable/ic_menu_camera" />
 
         <Button
             android:id="@+id/btnCapturarFoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#5A813B"
             android:text="Capturar Foto"
-            android:layout_gravity="center"/>
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/spinnerPais"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed-medium"/>
+
 
         <EditText
             android:id="@+id/txtNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre" />
+            android:hint="Nombre"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtNumero"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Número de Celular"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/txtNota"
@@ -48,18 +55,22 @@
             android:layout_height="wrap_content"
             android:hint="Nota"
             android:inputType="textMultiLine"
-            android:minLines="3" />
+            android:minLines="3"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnGuardar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#3949AB"
             android:text="Guardar Contacto" />
 
         <Button
             android:id="@+id/btncontactossalvados"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btncontactossalvados" />
+            android:backgroundTint="#3949AB"
+            android:text="@string/btncontactossalvados"
+            android:textStyle="bold" />
     </LinearLayout>
 </ScrollView>
