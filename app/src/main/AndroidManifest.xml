@@ -23,7 +23,7 @@
         android:theme="@style/Theme.PM2Examen0653">
         <activity
             android:name=".ListaContactosActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
