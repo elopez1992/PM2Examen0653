@@ -33,7 +33,7 @@ public class ListaContactosActivity extends AppCompatActivity {
     ListView listViewContactos;
     ArrayList<Contacto> listaContactos = new ArrayList<>();
     ArrayAdapter<Contacto> adapter;
-    String numeroPendienteLlamar = null;  // ← Para almacenar el número si se requiere llamar después
+    String numeroPendienteLlamar = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
