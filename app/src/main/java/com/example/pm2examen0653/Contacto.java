@@ -17,7 +17,7 @@ public class Contacto
         this.nota = nota;
         this.foto = foto;
     }
-
+       //este codigo nos va permitir mostrar en el ListView la informacion del contacto.
     @Override
     public String toString() {
         return nombre + " - " + numero + " - "+ pais + " - " + nota;

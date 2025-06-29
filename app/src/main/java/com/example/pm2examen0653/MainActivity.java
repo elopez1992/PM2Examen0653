@@ -39,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinnerPais;
     EditText txtNombre, txtNumero, txtNota;
     String imagenBase64 = "";
-    int idEditar = -1; // ← variable global para saber si estamos editando
+    int idEditar = -1; //Esta variable nos va permitir saber si un id existe al momento presionar el boton actualizar y asi poder continuar editando.
 
-    String[] paises = {"Honduras +504", "El Salvador +503", "Guatemala +502", "Costa Rica +506", "Nicaragua +505"};
+    String[] paises = {"Honduras +504", "El Salvador +503", "Guatemala +502", "Costa Rica +506", "Nicaragua +505"}; //permitira que al Spinner cargue los datos de los paises a seleccionar.
     final int REQUEST_CAMARA = 100;
 
     @Override
@@ -62,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPais.setAdapter(adapter);
 
-        // ← Detectar si se recibió un ID para editar
+        //aqui recibira la instruccion de que si un Id existe va proceder a editar.
         idEditar = getIntent().getIntExtra("id", -1);
         if (idEditar != -1) {
             cargarDatosParaEditar(idEditar);
-            btnGuardar.setText("Actualizar Contacto");
+            btnGuardar.setText("Actualizar Contacto"); //al boton de salvar contacto le va cambiar el texto para actualizar contacto.
         }
 
         btnCapturar.setOnClickListener(v -> {
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // ← Guardar o actualizar dependiendo del estado
+        // el boton guardar estara condicionado si un id no existe guardar contacto como nuevo caso contarario guardara la edicion del registroe existente.
         btnGuardar.setOnClickListener(v -> {
             if (idEditar == -1) {
                 guardarContacto();
@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //boton para mostrar los contactos salvados.
         btncontactosalvado.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), ListaContactosActivity.class);
             startActivity(intent);
@@ -121,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
         String nota = txtNota.getText().toString().trim();
         String pais = spinnerPais.getSelectedItem().toString();
 
+        //Se crearon las condiciones para que el boton de guardar no realice accion mientras no se cumplan las alertas que el sistema esta mostrando
         if (nombre.isEmpty()) {
             Toast.makeText(this, "Debe escribir un nombre.", Toast.LENGTH_SHORT).show();
             return;

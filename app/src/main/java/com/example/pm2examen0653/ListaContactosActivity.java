@@ -73,7 +73,7 @@ public class ListaContactosActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaContactos);
         listViewContactos.setAdapter(adapter);
     }
-
+     //Activar las opciones al momento de seleccionar contacto con el AlertDialog.Builder
     private void mostrarOpciones(Contacto contacto) {
         String[] opciones = {"Ver Imagen", "Llamar", "Compartir", "Actualizar", "Eliminar"};
 
@@ -101,6 +101,7 @@ public class ListaContactosActivity extends AppCompatActivity {
         builder.show();
     }
 
+    //Metodo para mostrar imagen
     private void mostrarImagen(Contacto contacto) {
         if (contacto.foto != null && !contacto.foto.isEmpty()) {
             byte[] bytes = Base64.decode(contacto.foto, Base64.DEFAULT);
@@ -124,7 +125,7 @@ public class ListaContactosActivity extends AppCompatActivity {
             Toast.makeText(this, "Este contacto no tiene foto", Toast.LENGTH_SHORT).show();
         }
     }
-
+      //Metodo de realizar llamada.
     private void llamarContacto(String numero) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -141,7 +142,7 @@ public class ListaContactosActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
+    //Solicitud de permiso para realizar llamada.
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -159,6 +160,7 @@ public class ListaContactosActivity extends AppCompatActivity {
         }
     }
 
+    //Metodo Compartir contactos
     private void compartirContacto(Contacto contacto) {
         String texto = "Nombre: " + contacto.nombre + "\nTel: " + contacto.numero +
                 "\nPaís: " + contacto.pais + "\nNota: " + contacto.nota;
